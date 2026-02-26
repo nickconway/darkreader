@@ -1,8 +1,11 @@
 import type {ExtensionData, Theme, UserSettings} from '../../definitions';
 import {ThemeEngine} from '../../generators/theme-engines';
 
-export function getMockData(override = {} as Partial<ExtensionData>): ExtensionData {
-    return Object.assign({
+export function getMockData(
+    override = {} as Partial<ExtensionData>,
+): ExtensionData {
+    return Object.assign(
+    {
         isEnabled: true,
         isReady: true,
         isAllowedFileSchemeAccess: false,
@@ -51,6 +54,8 @@ export function getMockData(override = {} as Partial<ExtensionData>): ExtensionD
                 longitude: 31.021786,
             },
             detectDarkTheme: false,
+            shadowCopy: [],
+            externalConnections: [],
         } as UserSettings,
         fonts: [
             'serif',
@@ -62,8 +67,8 @@ export function getMockData(override = {} as Partial<ExtensionData>): ExtensionD
         ],
         news: [],
         shortcuts: {
-            'addSite': 'Alt+Shift+A',
-            'toggle': 'Alt+Shift+D',
+            addSite: 'Alt+Shift+A',
+            toggle: 'Alt+Shift+D',
         },
         devtools: {
             dynamicFixesText: '',
@@ -95,5 +100,7 @@ export function getMockData(override = {} as Partial<ExtensionData>): ExtensionD
             isDarkThemeDetected: false,
         },
         uiHighlights: [],
-    } as ExtensionData, override);
+    } as ExtensionData,
+    override,
+    );
 }

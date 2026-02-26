@@ -3,7 +3,13 @@ import type {Theme, UserSettings} from './definitions';
 import {ThemeEngine} from './generators/theme-engines';
 import {AutomationMode} from './utils/automation';
 import type {ParsedColorSchemeConfig} from './utils/colorscheme-parser';
-import {isMacOS, isWindows, isCSSColorSchemePropSupported, isEdge, isMobile} from './utils/platform';
+import {
+    isMacOS,
+    isWindows,
+    isCSSColorSchemePropSupported,
+    isEdge,
+    isMobile,
+} from './utils/platform';
 
 declare const __CHROMIUM_MV3__: boolean;
 declare const __PLUS__: boolean;
@@ -36,7 +42,9 @@ export const DEFAULT_THEME: Theme = {
     lightSchemeTextColor: DEFAULT_COLORS.lightScheme.text,
     scrollbarColor: '',
     selectionColor: 'auto',
-    styleSystemControls: __CHROMIUM_MV3__ ? false : !isCSSColorSchemePropSupported,
+    styleSystemControls: __CHROMIUM_MV3__
+        ? false
+        : !isCSSColorSchemePropSupported,
     lightColorScheme: 'Default',
     darkColorScheme: 'Default',
     immediateModify: false,
@@ -106,5 +114,9 @@ export const DEFAULT_SETTINGS: UserSettings = {
     enableForPDF: true,
     enableForProtectedPages: false,
     enableContextMenus: false,
+    externalConnections: [
+        {id: 'darkreader', isNative: true, blockedActions: []},
+    ],
+    shadowCopy: [],
     detectDarkTheme: true,
 };
